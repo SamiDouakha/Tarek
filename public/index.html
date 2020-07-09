@@ -9,33 +9,39 @@
       href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
     />
     <link rel="stylesheet" href="../dist/css/style.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Roboto+Slab&display=swap" rel="stylesheet"> 
   </head>
   <body>
     <div class="container">
-      <header class="header">
-        <h1 class="logo">Logo</h1>
-        <!--<img src="img/logo.svg" alt="logo sysdev" />-->
-        <input type="checkbox" class="nav-toggle" id="nav-toggle" />
-        <label for="nav-toggle" class="nav-toggle-label"> <span></span></label>
-
-        <nav class="nav nav-bar">
-          <ul class="list-items">
+      <header>
+        <nav class="nav-bar" id="nav-bar"> 
+          <div class="logo">
+            <a href="#home"><img src="../../dist/img/logo.svg" alt="logo"></a></div>
+          </a>
+          <input type="checkbox" class="nav-toggle" id="nav-toggle" />
+          <label for="nav-toggle" class="nav-toggle-label"> <span></span></label>
+          <ul class="nav list-items">
             <li class="item"><a class="link" href="#home">Home</a></li>
             <li class="item"><a class="link" href="#about">About</a></li>
             <li class="item">
-              <a class="link" href="#protfolio">Protfolio</a>
+              <a class="link" href="#portfolio">Protfolio</a>
             </li>
-            <li class="item"><a class="link" href="#service">Services</a></li>
+            <li class="item"><a class="link" href="#services">Services</a></li>
             <li class="item"><a class="link" href="#contact">Contact</a></li>
           </ul>
         </nav>
-      </header>
+        
+        
 
       <main class="main">
-        <div class="banner" id="home"></div>
+        <div class="banner-area" id="home">
+          <h1>sticky nav bar</h1>
+        </div>
         <section id="about" class="about">
-          <h2>About</h2>
-          <p>
+          <div class="content">
+            <h2>About</h2>
+            <p>
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas,
             optio. Ea labore sapiente, praesentium voluptas eius quae sunt
             facere reprehenderit. Animi at iusto, aspernatur ut iste atque. Eos,
@@ -48,9 +54,11 @@
             praesentium officiis suscipit. Quas debitis vel possimus voluptate!
             Adipisci facere ratione neque eveniet. Commodi assumenda quibusdam
             repellendus minima, minus delectus totam magnam placeat.
-          </p>
+            </p>
+          </div>
         </section>
         <section id="portfolio" class="portfolio">
+          <div class="content">
           <h2>Portfolio</h2>
           <p>
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas,
@@ -66,8 +74,10 @@
             Adipisci facere ratione neque eveniet. Commodi assumenda quibusdam
             repellendus minima, minus delectus totam magnam placeat.
           </p>
+        </div>
         </section>
         <section id="services" class="services">
+          <div class="content">
           <h2>Service</h2>
           <p>
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas,
@@ -83,8 +93,10 @@
             Adipisci facere ratione neque eveniet. Commodi assumenda quibusdam
             repellendus minima, minus delectus totam magnam placeat.
           </p>
+        </div>
         </section>
         <section class="contact" id="contact">
+        <div class="content">
           <h2>Contact</h2>
           <p>
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas,
@@ -100,6 +112,7 @@
             Adipisci facere ratione neque eveniet. Commodi assumenda quibusdam
             repellendus minima, minus delectus totam magnam placeat.
           </p>
+        </div>
         </section>
       </main>
 
@@ -117,5 +130,15 @@
         <p>copy right <i class="fas fa-copyright"></i></p>
       </footer>-->
     </div>
+    <script>
+      window.addEventListener('scroll',function(){
+       let nav_bar =  document.getElementById("nav-bar");
+       if(window.pageYOffset >0){
+         nav_bar.classList.add('cus-nav-bar');
+       }else{
+         nav_bar.classList.remove('cus-nav-bar');
+       }
+      });
+    </script>
   </body>
 </html>
