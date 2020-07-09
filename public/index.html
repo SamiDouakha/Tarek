@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Roboto+Slab&display=swap" rel="stylesheet"> 
   </head>
   <body>
-    <div class="container">
+    
       <header>
         <nav class="nav-bar" id="nav-bar"> 
           <div class="logo">
@@ -31,9 +31,9 @@
             <li class="item"><a class="link" href="#contact">Contact</a></li>
           </ul>
         </nav>
+      </header>  
         
-        
-
+      <div class="container">   
       <main class="main">
         <div class="banner-area" id="home">
           <h1>sticky nav bar</h1>
@@ -78,7 +78,7 @@
         </section>
         <section id="services" class="services">
           <div class="content">
-          <h2>Service</h2>
+          <h2>Services</h2>
           <p>
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas,
             optio. Ea labore sapiente, praesentium voluptas eius quae sunt
@@ -116,29 +116,7 @@
         </section>
       </main>
 
-      <!--<aside class="sidebar">
-        <nav>
-          <ul>
-            <li><a href="#">Lorem.</a></li>
-            <li><a href="#">Eum?</a></li>
-            <li><a href="#">Quo.</a></li>
-            <li><a href="#">Ullam!</a></li>
-          </ul>
-        </nav>
-      </aside>
-      <footer class="footer">
-        <p>copy right <i class="fas fa-copyright"></i></p>
-      </footer>-->
     </div>
-    <script>
-      window.addEventListener('scroll',function(){
-       let nav_bar =  document.getElementById("nav-bar");
-       if(window.pageYOffset >0){
-         nav_bar.classList.add('cus-nav-bar');
-       }else{
-         nav_bar.classList.remove('cus-nav-bar');
-       }
-      });
-    </script>
+    <script src="../dist/js/main.js"></script>
   </body>
 </html>
