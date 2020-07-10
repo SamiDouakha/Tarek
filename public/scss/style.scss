@@ -38,7 +38,7 @@ html {
   flex-wrap: wrap;
   width: 100%;
   background-color: rgba(#e8ddd9, 0.5); // rgba(26, 20, 35, 0.5);
-  box-shadow: none;
+  box-shadow: 0 0 1rem 0 $primary;
   //0 0 0.6rem 0 darken($underline, 30); // rgba(31, 92, 23, 0.5);
   transition: background-color, box-shadow 300ms ease-in;
 
@@ -169,6 +169,47 @@ p {
   color: $primary;
 }
 
+.dropdown-list {
+  list-style: none;
+
+  position: absolute;
+  top: 5rem;
+  left: 44%;
+
+  width: 400px;
+
+  box-shadow: 0 0 1rem 0 $success;
+
+  display: flex;
+
+  flex-direction: column;
+  justify-items: center;
+
+  transform-origin: -400px;
+  transform: scale(0, 0);
+  transition: transform 300ms ease-in-out;
+}
+.dropdown-item {
+  padding-left: 10%;
+  height: 2rem;
+
+  color: $secondary;
+
+  background-color: rgba(#e8ddd9, 1);
+
+  cursor: pointer;
+  display: flex;
+  & .dropdown-link {
+    color: #1a1423;
+  }
+}
+
+.nav-toggle:checked ~ .dropdown-list {
+  transform: scale(1, 1);
+}
+.nav-toggle-label {
+  font-family: Poppins;
+}
 .nav-toggle {
   display: none;
 }
