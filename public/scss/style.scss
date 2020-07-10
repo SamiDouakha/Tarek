@@ -1,7 +1,11 @@
 $secondary: rgba(26, 20, 35, 1) !default;
 $primary: rgba(232, 221, 217, 1) !default;
-$success: #9c6d82 !default;
-$underline: rgba(234, 232, 241, 0.651) !default;
+$success: lighten($secondary, 30) !default;
+$underline: lighten($secondary, 30) !default;
+$navBarBackground: rgba(#e8ddd9, 0.3);
+$navBarShadow: $secondary !default;
+$navBarFixedBackground: $secondary !default;
+$background: #e8ddd9;
 @font-face {
   font-family: "big jhon";
   src: url("../fonts/big_jhon.otf") format("opentype");
@@ -27,6 +31,24 @@ html {
 }
 
 .nav-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  display: flex;
+  height: 4rem;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  background-color: $navBarBackground; // rgba(26, 20, 35, 0.5);
+  box-shadow: 0 0 1rem 0 $navBarShadow;
+  //0 0 0.6rem 0 darken($underline, 30); // rgba(31, 92, 23, 0.5);
+  transition: background-color, box-shadow 300ms ease-in;
+
+  z-index: 1;
+}
+.nav-bar-fixed {
   position: fixed;
   top: 0;
   left: 0;
@@ -37,14 +59,14 @@ html {
   align-items: center;
   flex-wrap: wrap;
   width: 100%;
-  background-color: rgba(#e8ddd9, 0.5); // rgba(26, 20, 35, 0.5);
-  box-shadow: 0 0 1rem 0 $primary;
+
+  background-color: $navBarFixedBackground;
+  box-shadow: 0 0 0.4rem 0 $navBarShadow; //lighten($underline, 10);
   //0 0 0.6rem 0 darken($underline, 30); // rgba(31, 92, 23, 0.5);
   transition: background-color, box-shadow 300ms ease-in;
 
   z-index: 1;
 }
-
 .logo {
   flex: 1 1 auto;
   margin-left: 10%;
@@ -104,7 +126,7 @@ html {
 }
 
 .link:hover {
-  color: #1a1423;
+  color: $navBarShadow;
 }
 
 .link:hover::after {
@@ -162,11 +184,14 @@ p {
 }
 .section-light {
   background-color: $primary;
-  color: $secondary;
+  color: lighten($secondary, 30);
 }
 .section-dark {
-  background-color: $secondary;
+  background-color: lighten($secondary, 30);
   color: $primary;
+}
+.section h2 {
+  color: $secondary;
 }
 
 .dropdown-list {
@@ -175,11 +200,9 @@ p {
   position: absolute;
   top: 5rem;
   left: 44%;
-
-  width: 400px;
-
-  box-shadow: 0 0 1rem 0 $success;
-
+  width: 300px;
+  box-shadow: 0 0 1rem 0 $navBarShadow;
+  background-color: $secondary;
   display: flex;
 
   flex-direction: column;
@@ -188,20 +211,25 @@ p {
   transform-origin: -400px;
   transform: scale(0, 0);
   transition: transform 300ms ease-in-out;
+  padding: 1rem;
 }
 .dropdown-item {
   padding-left: 10%;
-  height: 2rem;
-
-  color: $secondary;
-
-  background-color: rgba(#e8ddd9, 1);
+  line-height: 2rem;
 
   cursor: pointer;
   display: flex;
-  & .dropdown-link {
-    color: #1a1423;
-  }
+  align-items: center;
+}
+.dropdown-link {
+  color: $background;
+}
+
+.dropdown-item:hover {
+  background-color: $background;
+}
+.dropdown-item:hover .dropdown-link {
+  color: $success;
 }
 
 .nav-toggle:checked ~ .dropdown-list {
@@ -213,11 +241,7 @@ p {
 .nav-toggle {
   display: none;
 }
-.cus-nav-bar {
-  // background-color: rgba(0, 0, 0, 0.9);
-  background-color: $secondary;
-  box-shadow: 0 0 0.6rem 0 lighten($underline, 50);
-}
-.cus-nav-bar .link {
+
+.nav-bar-fixed .link {
   color: $primary;
 }

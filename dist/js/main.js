@@ -17,21 +17,24 @@ for (var i = 0; i < links.length; i++) {
   };
 }*/
 const nav_bar = document.querySelector(".nav-bar");
-const banner = document.querySelector(".banner-area");
+const banner = document.querySelector("header");
 const g = document.querySelector("img");
 console.log(g);
 
-interserctionOptions = { rootMargin: "-64px 0px 0px 0px " };
+interserctionOptions = { rootMargin: "0px 0px 0px 0px " };
 const sectionOneObserver = new IntersectionObserver(function (
   entries,
   sectionOneObserver
 ) {
   entries.forEach((entry) => {
     if (!entry.isIntersecting) {
-      nav_bar.classList.add("cus-nav-bar");
+      nav_bar.classList.add("nav-bar-fixed");
+      nav_bar.classList.remove("nav-bar");
       g.src = "../../dist/img/logo.svg";
     } else {
-      nav_bar.classList.remove("cus-nav-bar");
+      nav_bar.classList.remove("nav-bar-fixed");
+      nav_bar.classList.add("nav-bar");
+
       g.src = "../../dist/img/logo-dark.svg";
     }
   });
